@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "run": " deno run --allow-env --allow-read=./def.ts,./factory2.json --allow-write=./factory.mjs,out.surql,./factory2.json,diff.json --unstable ./new.ts"
+  }
+}

@@ -1,0 +1,34 @@
+DEFINE TABLE Person SCHEMAFULL;
+DEFINE TABLE Friends SCHEMAFULL;
+DEFINE TABLE Couple SCHEMAFULL;
+DEFINE FIELD firstname ON TABLE Person TYPE string;
+DEFINE FIELD lastname ON TABLE Person TYPE string;
+DEFINE FIELD adress ON TABLE Person TYPE any;
+DEFINE FIELD prev_adress ON TABLE Person TYPE array;
+DEFINE FIELD prev_adress.* ON TABLE Person TYPE object;
+DEFINE FIELD prev_adress.*.street ON TABLE Person TYPE string;
+DEFINE FIELD prev_adress.*.plz ON TABLE Person TYPE string;
+DEFINE FIELD prev_adress.*.ort ON TABLE Person TYPE string;
+DEFINE FIELD email ON TABLE Person TYPE string;
+DEFINE FIELD is_member ON TABLE Person TYPE bool VALUE $value OR true;
+DEFINE FIELD test_num2 ON TABLE Person TYPE int VALUE $value OR 42;
+DEFINE FIELD newFileld2 ON TABLE Person TYPE string;
+DEFINE FIELD test_big ON TABLE Person TYPE int VALUE $value OR 42;
+DEFINE FIELD test_string ON TABLE Person TYPE string VALUE $value OR "abbb";
+DEFINE FIELD test_string2 ON TABLE Person TYPE string VALUE $value OR "abbb";
+DEFINE FIELD newField ON TABLE Person TYPE int;
+DEFINE FIELD age2 ON TABLE Person TYPE int VALUE <future> time::now() - birthdate;
+DEFINE FIELD age ON TABLE Person TYPE int VALUE <future> genExpr(type.typeArgs[1]);
+DEFINE FIELD ustruct3 ON TABLE Person TYPE any;
+
+DEFINE FIELD unstructered ON TABLE Person TYPE any VALUE $value OR ??;
+DEFINE FIELD ustruct2 ON TABLE Person TYPE any;
+DEFINE FIELD bff ON TABLE Person TYPE record(Person);
+DEFINE FIELD array ON TABLE Person TYPE array;
+DEFINE FIELD array.* ON TABLE Person TYPE string;
+DEFINE FIELD array2 ON TABLE Person TYPE array;
+DEFINE FIELD array2.* ON TABLE Person TYPE string;
+DEFINE FIELD tuple ON TABLE Person TYPE array;
+DEFINE FIELD tuple[0] ON TABLE Person TYPE string;
+DEFINE FIELD tuple[1] ON TABLE Person TYPE string;
+/*{"name":"Couple","type":{"type":"RELATION","typeArgs":[{"type":"Person","typeArgs":[]},{"type":"Person","typeArgs":[]}]}}*/
